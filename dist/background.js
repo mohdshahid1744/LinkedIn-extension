@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener((()=>{console.log("Extension is listening"),chrome.webNavigation.onCompleted.addListener((e=>{e.url&&e.url.includes("linkedin.com")&&chrome.scripting.executeScript({target:{tabId:e.tabId},files:["contentScript.js"]})}),{url:[{urlMatches:"https://*.linkedin.com/*"}]})}));

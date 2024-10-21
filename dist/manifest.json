@@ -1,0 +1,37 @@
+{
+    "manifest_version":3,
+    "version":"1.0.0",
+    "name":"LinkedIn extension",
+   
+    "host_permissions":[
+        "http://*/*",
+        "https://*/*"
+    ],
+    "icons":{
+        "16":"icon32.png",
+        "48":"icon32.png",
+        "128":"icon32.png"
+    },
+    "action":{
+        "default_title":"Click me",
+        "default_popup":"popup.html"
+    },
+    
+    "permissions": [
+        "tabs",
+        "bookmarks",
+        "storage",
+        "identity",
+        "webNavigation"
+    ],
+    "background":{
+        "service_worker":"background.js"
+    },
+    "content_scripts":[
+       { 
+        "matches":["https://*.linkedin.com/*"],
+        "js":["contentScript.js"]
+       }
+    ],
+    "options_page": "options.html"
+}
